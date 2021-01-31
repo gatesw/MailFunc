@@ -4,6 +4,7 @@ using SendGrid;
 using MailFunc.Common.Abstractions;
 using System;
 using MailFunc.SendGrid;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace MainFunc.SendGrid
 {
@@ -14,8 +15,9 @@ namespace MainFunc.SendGrid
             Action<SendGridClientOptions> options)
         {
             services.Configure(options);
-            services.AddScoped<ISendGridClient>(sp => new SendGridClient(sp.GetRequiredService<IOptions<SendGridClientOptions>>().Value));
-            services.AddScoped<ISender, Sender>();
+            services.TryAddScoped<ISendGridClient>(sp => new SendGridClient(sp.GetRequiredService<IOptions<SendGridClientOptions>>().Value));
+            services.TryAddScoped<ISenderRequestValidator, ISenderRequestValidator>();
+            services.TryAddScoped<ISender, Sender>();
             return services;
         }
     }

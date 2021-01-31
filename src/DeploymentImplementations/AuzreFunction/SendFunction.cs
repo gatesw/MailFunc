@@ -37,6 +37,10 @@ namespace MailFunc.AzureFunction
 
                 return new OkResult();
             }
+            catch (InvalidSenderRequestException e)
+            {
+                return new BadRequestObjectResult(e.ErrorMessages);
+            }
             catch (MessageSendFailedException)
             {
                 return new InternalServerErrorResult();

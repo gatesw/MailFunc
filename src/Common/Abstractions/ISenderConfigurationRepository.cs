@@ -6,6 +6,6 @@ namespace MailFunc.Common.Abstractions
 {
     public interface ISenderConfigurationRepository
     {
-        public Task<SenderConfiguration?> Retrieve(Guid id);
+        public Task<ISenderConfiguration?> Retrieve(Guid id);
     }
 }

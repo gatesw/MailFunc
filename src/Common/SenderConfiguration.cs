@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MailFunc.Common.Abstractions;
+using System;
 
 namespace MailFunc.Common
 {
-    public class SenderConfiguration
+    public class SenderConfiguration : ISenderConfiguration
     {
         public Guid Id { get; set; }
 
@@ -11,5 +12,9 @@ namespace MailFunc.Common
         public string ToEmail { get; set; } = null!;
 
         public string DefaultFromEmail { get; set; } = null!;
+
+        public bool AllowEmptySubject { get; set; }
+
+        public bool AllowEmptyBody { get; set; }
     }
 }

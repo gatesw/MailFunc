@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MailFunc.Common.Abstractions;
 using System;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace MailFunc.AzureTableStorage
 {
@@ -13,9 +14,9 @@ namespace MailFunc.AzureTableStorage
             Action<AzureTableStorageSenderConfigurationRepositoryOptions> options)
         {
             services.Configure(options);
-            services.AddScoped<IStorageAccountRetriever>(sp =>
+            services.TryAddScoped<IStorageAccountRetriever>(sp =>
                 new StorageAccountRetriever(sp.GetRequiredService<ILogger<StorageAccountRetriever>>(), connectionString));
-            services.AddScoped<ISenderConfigurationRepository, SenderConfigurationRepository>();
+            services.TryAddScoped<ISenderConfigurationRepository, SenderConfigurationRepository>();
             return services;
         }
     }

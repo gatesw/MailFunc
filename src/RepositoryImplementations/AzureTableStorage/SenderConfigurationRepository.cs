@@ -24,7 +24,7 @@ namespace MailFunc.AzureTableStorage
             _storageAccountRetriever = storageAccountRetriever;
         }
 
-        public async Task<SenderConfiguration?> Retrieve(Guid id)
+        public async Task<ISenderConfiguration?> Retrieve(Guid id)
         {
             var table = await GetTable();
             var tableOperation = TableOperation.Retrieve<SenderConfigurationTableEntity>(_options.Value.PartitionKey, id.ToString());
