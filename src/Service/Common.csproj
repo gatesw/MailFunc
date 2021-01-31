@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <nullable>enable</nullable>
+    <AssemblyName>MailFunc.Common</AssemblyName>
+    <RootNamespace>MailFunc.Common</RootNamespace>
+  </PropertyGroup>
+
+</Project>

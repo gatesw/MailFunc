@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "src\Service\Common.csproj", "{62A186C3-AD20-46E3-9F36-A26D8F6D97BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{66624D44-B0CE-44B5-82DA-F36A67D3752C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepositoryImplementations", "RepositoryImplementations", "{AEE697F9-9164-45BF-A465-0F2EE01C8042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStorageRepository", "src\RepositoryImplementations\AzureTableStorage\AzureTableStorageRepository\AzureTableStorageRepository.csproj", "{2680B2AF-CD57-4E02-9D6E-0034716EB347}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeploymentImplementations", "DeploymentImplementations", "{BE614A47-BF5E-4678-B587-F5912FFCAA7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunction", "src\DeploymentImplementations\AuzreFunction\AzureMailFunc\AzureFunction.csproj", "{35366BC5-B2F8-4839-BA96-B7675205D6C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SenderImplementations", "SenderImplementations", "{ED919878-B9DB-43FB-9C73-AE12E9A1BEBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGridSender", "src\SenderImplementations\SendGrid\SendGridSender\SendGridSender.csproj", "{9D6282AD-8766-4A89-8878-10901FF49022}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62A186C3-AD20-46E3-9F36-A26D8F6D97BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A186C3-AD20-46E3-9F36-A26D8F6D97BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A186C3-AD20-46E3-9F36-A26D8F6D97BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A186C3-AD20-46E3-9F36-A26D8F6D97BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2680B2AF-CD57-4E02-9D6E-0034716EB347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2680B2AF-CD57-4E02-9D6E-0034716EB347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2680B2AF-CD57-4E02-9D6E-0034716EB347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2680B2AF-CD57-4E02-9D6E-0034716EB347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35366BC5-B2F8-4839-BA96-B7675205D6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35366BC5-B2F8-4839-BA96-B7675205D6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35366BC5-B2F8-4839-BA96-B7675205D6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35366BC5-B2F8-4839-BA96-B7675205D6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D6282AD-8766-4A89-8878-10901FF49022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D6282AD-8766-4A89-8878-10901FF49022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D6282AD-8766-4A89-8878-10901FF49022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D6282AD-8766-4A89-8878-10901FF49022}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62A186C3-AD20-46E3-9F36-A26D8F6D97BB} = {66624D44-B0CE-44B5-82DA-F36A67D3752C}
+		{AEE697F9-9164-45BF-A465-0F2EE01C8042} = {66624D44-B0CE-44B5-82DA-F36A67D3752C}
+		{2680B2AF-CD57-4E02-9D6E-0034716EB347} = {AEE697F9-9164-45BF-A465-0F2EE01C8042}
+		{BE614A47-BF5E-4678-B587-F5912FFCAA7A} = {66624D44-B0CE-44B5-82DA-F36A67D3752C}
+		{35366BC5-B2F8-4839-BA96-B7675205D6C1} = {BE614A47-BF5E-4678-B587-F5912FFCAA7A}
+		{ED919878-B9DB-43FB-9C73-AE12E9A1BEBF} = {66624D44-B0CE-44B5-82DA-F36A67D3752C}
+		{9D6282AD-8766-4A89-8878-10901FF49022} = {ED919878-B9DB-43FB-9C73-AE12E9A1BEBF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8412A452-89C3-40A2-92AB-D303DE979437}
+	EndGlobalSection
+EndGlobal
