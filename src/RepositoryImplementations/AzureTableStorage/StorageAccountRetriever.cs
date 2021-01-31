@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace MailFunc.AzureTableStorageRepository
+namespace MailFunc.AzureTableStorage
 {
     public class StorageAccountRetriever : IStorageAccountRetriever
     {

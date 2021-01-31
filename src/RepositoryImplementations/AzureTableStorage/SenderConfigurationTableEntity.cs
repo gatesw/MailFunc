@@ -2,7 +2,7 @@
 using Microsoft.Azure.Cosmos.Table;
 using System;
 
-namespace MailFunc.AzureTableStorageRepository
+namespace MailFunc.AzureTableStorage
 {
     public class SenderConfigurationTableEntity : TableEntity
     {

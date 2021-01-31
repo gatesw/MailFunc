@@ -3,9 +3,9 @@ using Microsoft.Extensions.Options;
 using SendGrid;
 using MailFunc.Common.Abstractions;
 using System;
-using MailFunc.SendGridSender;
+using MailFunc.SendGrid;
 
-namespace MainFunc.SendGridSender
+namespace MainFunc.SendGrid
 {
     public static class ServiceCollectionExtensions
     {

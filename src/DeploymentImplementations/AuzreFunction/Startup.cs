@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using MailFunc.AzureTableStorageRepository;
+using MailFunc.AzureTableStorage;
 using System;
-using MainFunc.SendGridSender;
+using MainFunc.SendGrid;
 
 [assembly: FunctionsStartup(typeof(MailFunc.AzureFunction.Startup))]
 namespace MailFunc.AzureFunction

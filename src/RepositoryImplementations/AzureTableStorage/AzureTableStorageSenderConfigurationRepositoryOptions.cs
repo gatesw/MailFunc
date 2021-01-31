@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Cosmos.Table;
 
-namespace MailFunc.AzureTableStorageRepository
+namespace MailFunc.AzureTableStorage
 {
     public class AzureTableStorageSenderConfigurationRepositoryOptions
     {

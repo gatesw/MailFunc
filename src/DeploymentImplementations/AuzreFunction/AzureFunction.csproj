@@ -11,9 +11,9 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RepositoryImplementations\AzureTableStorage\AzureTableStorageRepository\AzureTableStorageRepository.csproj" />
-    <ProjectReference Include="..\..\..\SenderImplementations\SendGrid\SendGridSender\SendGridSender.csproj" />
-    <ProjectReference Include="..\..\..\Service\Common.csproj" />
+    <ProjectReference Include="..\..\RepositoryImplementations\AzureTableStorage\AzureTableStorage.csproj" />
+    <ProjectReference Include="..\..\SenderImplementations\SendGrid\SendGrid.csproj" />
+    <ProjectReference Include="..\..\Common\Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using MailFunc.Common.Abstractions;
 using System;
 
-namespace MailFunc.AzureTableStorageRepository
+namespace MailFunc.AzureTableStorage
 {
     public static class ServiceCollectionExtensions
     {

@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using MailFunc.Common.Abstractions;
 using MailFunc.Common;
 
-namespace MailFunc.SendGridSender
+namespace MailFunc.SendGrid
 {
     public class Sender : ISender
     {

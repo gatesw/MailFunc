@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using MailFunc.Common;
 
-namespace MailFunc.AzureTableStorageRepository
+namespace MailFunc.AzureTableStorage
 {
     public class SenderConfigurationRepository : ISenderConfigurationRepository
     {
