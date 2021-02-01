@@ -2,6 +2,7 @@
 using MailFunc.AzureTableStorage;
 using System;
 using MainFunc.SendGrid;
+using MailFunc.Handlebars;
 
 [assembly: FunctionsStartup(typeof(MailFunc.AzureFunction.Startup))]
 namespace MailFunc.AzureFunction
@@ -31,6 +32,8 @@ namespace MailFunc.AzureFunction
             builder.Services.UseSendGrid(options => {
                 options.ApiKey = Environment.GetEnvironmentVariable(SendGridApiKey);
             });
+
+            builder.Services.UseHandlebars();
         }
     }
 }

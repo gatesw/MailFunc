@@ -6,6 +6,7 @@ using Moq;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,18 +19,21 @@ namespace MailFunc.SendGrid.Test
         private readonly Sender _sender;
         private readonly Mock<ISendGridClient> _mockSendGridClient;
         private readonly Mock<ISenderConfigurationRepository> _mockSenderConfigurationRepository;
+        private readonly Mock<ITemplateApplicator> _mockTemplateApplicator;
         private readonly Mock<ISenderRequestValidator> _mockSenderRequestValidator;
 
         public SenderTest()
         {
             _mockSendGridClient = new Mock<ISendGridClient>();
             _mockSenderConfigurationRepository = new Mock<ISenderConfigurationRepository>();
+            _mockTemplateApplicator = new Mock<ITemplateApplicator>();
             _mockSenderRequestValidator = new Mock<ISenderRequestValidator>();
 
             _sender = new Sender(
                 Mock.Of<ILogger<Sender>>(),
                 _mockSendGridClient.Object,
                 _mockSenderConfigurationRepository.Object,
+                new List<ITemplateApplicator> { _mockTemplateApplicator.Object },
                 _mockSenderRequestValidator.Object);
         }
 

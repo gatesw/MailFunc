@@ -5,47 +5,39 @@ using SendGrid.Helpers.Mail;
 using Microsoft.Extensions.Logging;
 using MailFunc.Common.Abstractions;
 using MailFunc.Common;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace MailFunc.SendGrid
 {
-    public class Sender : ISender
+    public class Sender : SenderBase, ISender
     {
         private readonly ILogger<Sender> _logger;
         private readonly ISendGridClient _client;
-        private readonly ISenderConfigurationRepository _senderConfigurationRepository;
-        private readonly ISenderRequestValidator _senderRequestValidator;
 
         public Sender(
             ILogger<Sender> logger,
             ISendGridClient client,
             ISenderConfigurationRepository senderConfigurationRepository,
-            ISenderRequestValidator senderRequestValidator)
+            IEnumerable<ITemplateApplicator> templateApplicators,
+            ISenderRequestValidator senderRequestValidator) 
+            : base(senderConfigurationRepository, templateApplicators, senderRequestValidator)
         {
             _logger = logger;
             _client = client;
-            _senderConfigurationRepository = senderConfigurationRepository;
-            _senderRequestValidator = senderRequestValidator;
         }
 
-        public async Task Send(SenderRequest request, CancellationToken cancellationToken = default)
+        protected override async Task Send(EmailMessage message, CancellationToken cancellationToken = default)
         {
-            var configuration = await _senderConfigurationRepository.Retrieve(request.ConfigurationId) ??
-                                throw new MissingConfigurationException(request.ConfigurationId);
-
-            _senderRequestValidator.Validate(configuration, request);
-
-            var from = new EmailAddress(request.FromEmail ?? configuration.DefaultFromEmail);
-            var to = new EmailAddress(configuration.ToEmail, configuration.Name);
-            var msg = request.BodyIsHtml ?
-                      MailHelper.CreateSingleEmail(from, to, request.Subject, null, request.Body) :
-                      MailHelper.CreateSingleEmail(from, to, request.Subject, request.Body, null);
+            var msg = message.OriginalRequest.BodyIsHtml ?
+                      MailHelper.CreateSingleEmail(new EmailAddress(message.From), new EmailAddress(message.To), message.Subject, null, message.Body) :
+                      MailHelper.CreateSingleEmail(new EmailAddress(message.From), new EmailAddress(message.To), message.Subject, message.Body, null);
 
             var response = await _client.SendEmailAsync(msg, cancellationToken);
-            if(!response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
                 var body = await response.DeserializeResponseBodyAsync(response.Body);
-                _logger.LogError($"Failed to Send Message for Configuration {request.ConfigurationId}", body);
+                _logger.LogError($"Failed to Send Message for Configuration {message.OriginalRequest.ConfigurationId}", body);
                 throw new MessageSendFailedException();
             }
         }

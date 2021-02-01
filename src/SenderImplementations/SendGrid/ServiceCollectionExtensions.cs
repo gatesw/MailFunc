@@ -5,6 +5,7 @@ using MailFunc.Common.Abstractions;
 using System;
 using MailFunc.SendGrid;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using MailFunc.Common;
 
 namespace MainFunc.SendGrid
 {
@@ -16,7 +17,7 @@ namespace MainFunc.SendGrid
         {
             services.Configure(options);
             services.TryAddScoped<ISendGridClient>(sp => new SendGridClient(sp.GetRequiredService<IOptions<SendGridClientOptions>>().Value));
-            services.TryAddScoped<ISenderRequestValidator, ISenderRequestValidator>();
+            services.TryAddScoped<ISenderRequestValidator, SenderRequestValidator>();
             services.TryAddScoped<ISender, Sender>();
             return services;
         }

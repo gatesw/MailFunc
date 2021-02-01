@@ -20,6 +20,8 @@ namespace MailFunc.AzureTableStorage
             DefaultFromEmail = source.DefaultFromEmail;
             AllowEmptySubject = source.AllowEmptySubject;
             AllowEmptyBody = source.AllowEmptyBody;
+            Template = source.Template;
+            TemplateType = source.TemplateType;
         }
 
         public Guid Id { get; set; }
@@ -33,6 +35,10 @@ namespace MailFunc.AzureTableStorage
         public bool AllowEmptySubject { get; set; }
 
         public bool AllowEmptyBody { get; set; }
+
+        public string? Template { get; set; }
+
+        public string? TemplateType { get; set; }
 
         public static SenderConfigurationTableEntity Create(string partitionKey, SenderConfiguration source) =>
             new SenderConfigurationTableEntity(partitionKey, source);

@@ -15,5 +15,9 @@ namespace MailFunc.Common.Abstractions
         bool AllowEmptySubject { get; }
 
         bool AllowEmptyBody { get; }
+
+        string? Template { get; }
+
+        string? TemplateType { get; }
     }
 }
