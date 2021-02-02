@@ -11,7 +11,7 @@ namespace MailFunc.Common
             OriginalRequest = originalRequest;
             From = from;
             To = to;
-            Subject = Subject;
+            Subject = subject;
             Body = body;
         }
 

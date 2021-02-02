@@ -29,7 +29,7 @@ namespace MailFunc.AzureTableStorage
             var table = await GetTable();
             var tableOperation = TableOperation.Retrieve<SenderConfigurationTableEntity>(_options.Value.PartitionKey, id.ToString());
             var queryResult = await table.ExecuteAsync(tableOperation);
-            if(queryResult.Result is SenderConfiguration configuration)
+            if(queryResult.Result is ISenderConfiguration configuration)
             {
                 return configuration;
             }

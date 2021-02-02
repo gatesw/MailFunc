@@ -34,7 +34,7 @@ namespace MailFunc.Common
             var from = request.FromEmail ?? configuration.DefaultFromEmail;
             var to = configuration.ToEmail;
             var messageBody = GetMessageBody(configuration, request);
-            await Send(EmailMessage.Create(request, from, to, request.Subject, messageBody));
+            await Send(EmailMessage.Create(request, from, to, request.Subject, messageBody), cancellationToken);
         }
 
         protected abstract Task Send(EmailMessage message, CancellationToken cancellationToken = default);
